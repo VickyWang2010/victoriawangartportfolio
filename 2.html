@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Art Portfolio</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mygallery.css">
+    <link rel="stylesheet" href="css/lg-transitions.css">
+    <link rel="stylesheet" href="css/lightgallery.css">
+
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: rgb(20, 20, 20);
+        }
+
+        .container {
+            width: 100%;
+            padding: 0;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+       
+
+        h1 {
+            font-size: 3em;
+            font-family: 'Brush Script MT', 'Brush Script Std', cursive;
+            color: #2b2d42;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-style: italic;
+        }
+
+        .portrait-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        } 
+
+        .portrait-section img {
+            width: 560px;
+            height:600px;
+        }
+
+        .art-philosophy {
+            text-align: justify;
+            max-width: 650px;
+            margin-left: 100px;
+        }
+
+        .art-philosophy p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .gallery-section {
+            margin-top: 50px;
+           
+        }
+
+        .gallery {
+            display: flex;
+            transition: transform 1s ease;
+        }
+
+        .artwork {
+            flex: 0 0 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .gallery img {
+            max-width: 100%;
+            max-height: 100%;
+            cursor: pointer;
+            transition: transform 0.3s ease, border 0.3s ease;
+            border: 4px solid black; /* Adds a default black border */
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            border: 6px solid black; /* Slightly thicker border on hover */
+        }
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: black;
+            font-size: 2rem;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .nav-arrow.left {
+            left: 20px;
+        }
+
+        .nav-arrow.right {
+            right: 20px;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .lightbox-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            max-width: 80%;
+        }
+
+        .lightbox img {
+            max-width: 60%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        .lightbox-description {
+            color: white;
+            font-size: 1.2em;
+            max-width: 400px;
+            text-align: left;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ccd0ff;
+            color: white;
+        }
+
+        footer a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+  
+        
+        <div class="portrait-section">
+            <img src="image/p.jpg" alt="p.jpg">
+            <div class="art-philosophy">
+                <h2>About me</h2>
+                <p>From a young age, I've always been intrigued by nature and the world around me, whether it's from a mathematical perspective or simply admiring the beautiful scenes it creates. I've wanted to find unique ways to capture and express my experiences. I love exploring different mediums, as art takes me into another world where I can find inner peace. I am passionate about it, and now that I have a solid foundation in art, I want to combine various cultures in my work and in the future, I want to address global issues trough my art. I believe that every little bit makes a difference, and I hope you can see my passion reflected in these pieces, each with its own story behind it.</p>
+            </div>
+        </div>
+
+    
+        <div  id="photo" class="gallery-section">
+            
+        
+            <ul class="row list-unstyled" id="lightgallery">
+                    
+                    <!--第1行-->
+                    <li class="col-md-4" data-src="image/aam.jpg" data-sub-html="I'ts me">
+                        <a href="">
+                            <img src="image/aam.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="col-md-4" data-src="image/fflll.png" data-sub-html="The Beauty of Nature, represented with dead leaves">
+                        <a href="">
+                            <img src="image/nat.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="col-md-4" data-src="image/pow.JPG" data-sub-html="Power - made with wire, molded with wrench">
+                        <a href="">
+                            <img src="image/pow.JPG" alt="">
+                        </a>
+                    </li>
+
+                    <!--第2行-->
+                    <li class="col-md-4" data-src="image/flo.png" data-sub-html="蝶恋花 - Butterflies in Love with Flowers represented throught traditional Chinese watercolor">
+                        <a href="">
+                            <img src="image/flo.png" alt="">
+                        </a>
+                    </li>
+                    <li class="col-md-4" data-src="image/dre.png" data-sub-html="Dreams - carefully crafted with traditional Chinese Fan paper">
+                        <a href="">
+                            <img src="image/dre.png" alt="">
+                        </a>
+                    </li>
+                    <li class="col-md-4" data-src="image/tow.png" data-sub-html="My Shanghai - portrayal of Shanghai as my dream world(round composition)">
+                        <a href="">
+                            <img src="image/tow.png" alt="">
+                        </a>
+                    </li>
+
+
+                    <!--第3行-->
+                    <li class="col-md-4" data-src="image/tra.png" data-sub-html="Bustling station in Beijing illustated with oil paint">
+                        <a href="">
+                            <img src="image/tra.png" alt="">
+                        </a>
+                    </li>
+                    <li class="col-md-4" data-src="image/fflll.png" data-sub-html="My tiny garden design using various flowers, tools and a carefully picked background">
+                        <a href="">
+                            <img src="image/fflll.png" alt="">
+                        </a>
+                    </li>
+                    <li class="col-md-4" data-src="image/sky.png" data-sub-html="Inspired by Camille Pissarro - I used Acrylics to represent a beautiful oil painting">
+                        <a href="">
+                            <img src="image/sky.png" alt="">
+                        </a>
+
+                    
+                    <!--第4行-->  
+                    </li>
+                    <li class="col-md-4" data-src="image/mat.jpg" data-sub-html="Inspired by Matisses distict lines - a brush pen portrait">
+                        <a href="">
+                            <img src="image/mat.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="col-md-4" data-src="image/col.png" data-sub-html="This is my depiction of famous artworks by Van Gough using oil pastels">
+                        <a href="">
+                            <img src="image/col.png" alt="">
+                        </a>
+                    </li>
+                    <li class="col-md-4" data-src="image/gla.png" data-sub-html="An abstact glass cup using pastel in the mountains">
+                        <a href="">
+                            <img src="image/gla.png" alt="">
+                        </a>
+                    </li>
+
+                    <!--第5行-->
+                    <li class="col-md-4" data-src="image/per.png" data-sub-html="Fascinated by old women who looked like men, I redrew this sketch of a soldier">
+                        <a href="">
+                            <img src="image/per.png" alt="">
+                        </a>
+                    </li>
+                    <li class="col-md-4" data-src="image/2poi.png" data-sub-html="A 2 point perspective drawing of a unique Empire state building">
+                        <a href="">
+                            <img src="image/2poi.png" alt="">
+                        </a>
+                    </li>
+                    <li class="col-md-4" data-src="image/girl.jpg" data-sub-html="">
+                        <a href="">
+                            <img src="image/girl.jpg" alt="Pretty girls quick sketch">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+        
+
+    
+        <footer>
+            <p> <a href="mailto:wanghuiqing0911@gmail.com">wanghuiqing0911@gmail.com</a></p>
+        </footer>
+
+
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vc.js "></script>
+    <script type="text/javascript" src="js/page.js "></script>
+    <script type="text/javascript" src="js/moment.js" ></script>
+    <script type="text/javascript" src="js/emojionearea.min.js "></script>
+    <script type="text/javascript" src="js/lg-thumbnail.min.js "></script>
+    <script type="text/javascript" src="js/lightgallery.min.js "></script>
+    <script>
+
+        
+        var lg = document.getElementById('lightgallery');
+
+        options={
+            mode:"lg-slide-circular"
+        };/*"lg-fade"，"lg-zoom-in"，"lg-zoom-in-big"，"lg-slide-circular"，"Ig-slide-circular-vertical"*/
+        
+        function play() {
+            document.getElementById('audio').play();
+        }
+
+        lg.addEventListener('onAfterOpen',play)
+
+        function pause() {
+            document.getElementById('audio').pause();
+        }
+
+        lg.addEventListener('onBeforeClose',pause)
+
+        lightGallery(lg,options);
+
+    </script>
+
+    
+</body>
+
+</html>
